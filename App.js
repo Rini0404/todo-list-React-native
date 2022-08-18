@@ -56,13 +56,32 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   writeTask: {
-    paddingHorizontal: 20,
-    paddingVertical: 20,
+    position: "absolute",
+    bottom: 60,
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   input: {
     backgroundColor: "#fff",
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 10,
+    borderRadius: 60,
+    width: 250,
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+    borderBottomColor: "#fff",
   },
+  addWrapper: {
+    backgroundColor: "white",
+    width: 60,
+    height: 60,
+    borderRadius: 60,
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#C0C0C0",
+    
+  },
+
+
 });
