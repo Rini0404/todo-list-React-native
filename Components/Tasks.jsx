@@ -3,8 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const Task = (props) => {
   // pass in the task as a prop
-  const { task, deleteTask } = props;
-  
+
   return (
     <View style={styles.task}>
       <View style={styles.itemLeft}>
@@ -19,33 +18,30 @@ const Task = (props) => {
 
 const styles = StyleSheet.create({
   task: {
-    backgroundColor: "white",
-    borderRadius: 10,
+    backgroundColor: '#FFF',
     padding: 15,
-    flexDirection: "row",
+    borderRadius: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 20,
-    alignItems: "center",
-    justifyContent: "space-between",
   },
- 
 
   taskText: {
-    padding: 2,
-    fontSize: 15,
-    color: "#333",
+    maxWidth: '80%',
   },
   itemLeft: {
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
   },
-    square: {
+  square: {
     // show a squre in the left side of the taskText
     width: 24,
     height: 24,
     backgroundColor: "blue",
     marginRight: 15,
-    opacity: 0.5,
+    opacity: 0.3,
     borderRadius: 5,
   },
   circle: {
@@ -54,9 +50,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: "transparent",
     borderWidth: 2,
-    marginRight: 10,
+    paddingBottom: 2,
   },
-
 });
 
 export default Task;

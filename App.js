@@ -21,6 +21,7 @@ export default function App() {
 
 
   const handleTask = () => {
+    // KeyboardA.dissmiss();
     setTaskList([...taskList, tasks]);
     setTasks(null);
   }
@@ -109,11 +110,11 @@ const styles = StyleSheet.create({
   input: {
     paddingVertical: 15,
     paddingHorizontal: 15,
-    backgroundColor: "#fff",
+    backgroundColor: '#FFF',
     borderRadius: 60,
-    width: 250,
-    borderBottomColor: "#fff",
+    borderColor: '#C0C0C0',
     borderWidth: 1,
+    width: 250,
   },
   addWrapper: {
     backgroundColor: "white",
