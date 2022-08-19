@@ -5,33 +5,29 @@ import {
   Text,
   View,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Keyboard,
 } from "react-native";
 import Task from "./Components/Tasks";
 
 import { useState } from "react";
 
-
 export default function App() {
-
   const [tasks, setTasks] = useState([]);
 
   const [taskList, setTaskList] = useState([]);
 
-
-
   const handleTask = () => {
-    // KeyboardA.dissmiss();
+    Keyboard.dismiss();
     setTaskList([...taskList, tasks]);
     setTasks(null);
-  }
+  };
 
   const handleDelete = (index) => {
-      let deleteTask = [...taskList];
-      deleteTask.splice(index, 1);
-      setTaskList(deleteTask);
-    }
-
+    let deleteTask = [...taskList];
+    deleteTask.splice(index, 1);
+    setTaskList(deleteTask);
+  };
 
   return (
     <View style={styles.container}>
@@ -39,24 +35,14 @@ export default function App() {
         <Text style={styles.sectionTitles}>Today's Tasks!</Text>
 
         <View style={styles.tasks}>
-        {
-          taskList.map((task, index) => {
+          {taskList.map((task, index) => {
             return (
-              <TouchableOpacity
-              onPress={() => handleDelete(index)}
-              key={index}
-              >
-            <Task
-              task={task}
-              handleTask={handleTask}
-              />
+              <TouchableOpacity onPress={() => handleDelete(index)} key={index}>
+                <Task task={task} handleTask={handleTask} />
               </TouchableOpacity>
-            );qqq
-              
-              
-              })
-
-        }
+            );
+            qqq;
+          })}
         </View>
       </View>
 
@@ -64,13 +50,13 @@ export default function App() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTask}
       >
-        <TextInput style={styles.input} placeholder = {"Write your Task!"}
-        value={tasks}
-        onChangeText={text => setTasks(text)}
+        <TextInput
+          style={styles.input}
+          placeholder={"Write your Task!"}
+          value={tasks}
+          onChangeText={(text) => setTasks(text)}
         />
-        <TouchableOpacity 
-        onPress={() => handleTask()}
-        style={styles.button}>
+        <TouchableOpacity onPress={() => handleTask()} style={styles.button}>
           <View style={styles.addWrapper}>
             <Text style={styles.add}>+</Text>
           </View>
@@ -110,9 +96,9 @@ const styles = StyleSheet.create({
   input: {
     paddingVertical: 15,
     paddingHorizontal: 15,
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
     borderRadius: 60,
-    borderColor: '#C0C0C0',
+    borderColor: "#C0C0C0",
     borderWidth: 1,
     width: 250,
   },
@@ -126,6 +112,4 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#C0C0C0",
   },
-
-
 });
