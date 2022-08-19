@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
  
 
   taskText: {
-    fontSize: 20,
+    padding: 2,
+    fontSize: 15,
     color: "#333",
   },
   itemLeft: {

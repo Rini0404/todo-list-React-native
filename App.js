@@ -9,15 +9,53 @@ import {
 } from "react-native";
 import Task from "./Components/Tasks";
 
+import { useState } from "react";
+
+
 export default function App() {
+
+  const [tasks, setTasks] = useState([]);
+
+  const [taskList, setTaskList] = useState([]);
+
+
+
+  const handleTask = () => {
+    setTaskList([...taskList, tasks]);
+    setTasks(null);
+  }
+
+  const handleDelete = (index) => {
+      let deleteTask = [...taskList];
+      deleteTask.splice(index, 1);
+      setTaskList(deleteTask);
+    }
+
+
   return (
     <View style={styles.container}>
       <View style={styles.taskWrapper}>
         <Text style={styles.sectionTitles}>Today's Tasks!</Text>
 
         <View style={styles.tasks}>
-          <Task text={"Task 1"} />
-          <Task text={"Task 1"} />
+        {
+          taskList.map((task, index) => {
+            return (
+              <TouchableOpacity
+              onPress={() => handleDelete(index)}
+              key={index}
+              >
+            <Task
+              task={task}
+              handleTask={handleTask}
+              />
+              </TouchableOpacity>
+            );qqq
+              
+              
+              })
+
+        }
         </View>
       </View>
 
@@ -25,8 +63,13 @@ export default function App() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTask}
       >
-        <TextInput style={styles.input} placeholder = {"Write your Task!"}/>
-        <TouchableOpacity style={styles.button}>
+        <TextInput style={styles.input} placeholder = {"Write your Task!"}
+        value={tasks}
+        onChangeText={text => setTasks(text)}
+        />
+        <TouchableOpacity 
+        onPress={() => handleTask()}
+        style={styles.button}>
           <View style={styles.addWrapper}>
             <Text style={styles.add}>+</Text>
           </View>
@@ -60,16 +103,17 @@ const styles = StyleSheet.create({
     bottom: 60,
     width: "100%",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "center",
   },
   input: {
+    paddingVertical: 15,
+    paddingHorizontal: 15,
     backgroundColor: "#fff",
     borderRadius: 60,
     width: 250,
-    paddingVertical: 15,
-    paddingHorizontal: 15,
     borderBottomColor: "#fff",
+    borderWidth: 1,
   },
   addWrapper: {
     backgroundColor: "white",
@@ -80,7 +124,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderColor: "#C0C0C0",
-    
   },
 
 
