@@ -16,6 +16,9 @@
 
 > A todo-list app using simple CSS and react.js! Made with the help of Expo to run my app. Also using react state management to help create the CRUD of the app! 
 
+https://user-images.githubusercontent.com/95727555/186250456-5071df25-6f0b-4c38-b28f-bc903c164bc8.mp4
+
+
 ### 🏠 [Homepage](https://github.com/kefranabg/readme-md-generator#readme)
 
 ### ✨ [Demo](https://drive.google.com/file/d/1zFz0LhUSKozlif8VNpn03ITXOKbwScrA/view?usp=sharing)
